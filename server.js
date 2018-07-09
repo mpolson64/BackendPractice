@@ -14,6 +14,8 @@ router.get('/', (req, res) => {
   res.json({message: 'yeet'});
 });
 
+app.use('/', router);
+
 const server = app.listen(process.env.PORT, () => {
   console.log('Listening on port ' + process.env.PORT);
 });
