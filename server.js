@@ -15,30 +15,32 @@ router.get('/', (req, res) => {
   res.json({message: 'yeet'});
 });
 
-router.route('/party').post((req, res) => {
-  const party = new Party();
-  party.name = 'mpo';
-  party.queue = ['despacito'];
-  party.pool = ['despacito 2', 'lift yourself'];
+router.route('/party')
+  .post((req, res) => {
+    const party = new Party();
+    party.name = 'mpo';
+    party.queue = ['despacito'];
+    party.pool = ['despacito 2', 'lift yourself'];
 
-  party.save((err) => {
-    if(err) {
-      console.log(err);
-    }
-    else {
-      res.json({message: "Party created"});
-    }
+    party.save((err) => {
+      if(err) {
+        console.log(err);
+      }
+      else {
+        res.json({message: "Party created"});
+      }
+    });
+  })
+  .get((req, res) => {
+    Party.find((err, parties) => {
+      if(err) {
+        console.log(err);
+      }
+      else {
+        res.json(parties);
+      }
+    });
   });
-}).get((req, res) {
-  Party.find((err, parties) => {
-    if(err) {
-      console.log(err);
-    }
-    else {
-      res.json(parties);
-    }
-  });
-});
 
 app.use('/', router);
 
