@@ -43,6 +43,18 @@ router.route('/party')
     });
   });
 
+router.route('/party/:id')
+  .get((req, res) => {
+    Party.findById(req.params.id, (err, party) => {
+      if (err) {
+        res.json(err);
+      }
+      else {
+        res.json(party);
+      }
+    });
+  });
+
 app.use('/', router);
 
 const server = app.listen(process.env.PORT, () => {
