@@ -10,7 +10,7 @@ mongoose.connect(process.env.MONGODB_URI);
 
 const router = express.Router();
 
-router.get('/', () => {
+router.get('/', (req, res) => {
   res.json({message: 'yeet'});
 });
 
