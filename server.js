@@ -29,6 +29,15 @@ router.route('/party').post((req, res) => {
       res.json({message: "Party created"});
     }
   });
+}).get((req, res) {
+  Party.find((err, parties) => {
+    if(err) {
+      console.log(err);
+    }
+    else {
+      res.json(parties);
+    }
+  });
 });
 
 app.use('/', router);
