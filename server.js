@@ -19,6 +19,7 @@ router.route('/party')
   .post((req, res) => {
     const party = new Party();
     console.log(req.query);
+    console.log(req.body);
     party.name = 'mpo';
     party.queue = ['despacito'];
     party.pool = ['despacito 2', 'lift yourself'];
