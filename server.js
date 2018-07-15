@@ -61,7 +61,7 @@ router.route('/party/:id/queue')
         res.json(err);
       }
       else {
-        res.json(req.params);
+        res.json(req.body);
       }
     });
   });
