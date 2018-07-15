@@ -62,6 +62,7 @@ router.route('/party/:id/queue')
       }
       else {
         res.json(req.body);
+        party.addSongToQueue(req.body);
       }
     });
   });

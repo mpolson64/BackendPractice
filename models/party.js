@@ -14,6 +14,13 @@ const partySchema = new Schema({
   }]
 });
 
+partySchema.methods.addSongToQueue = (song) => {
+  this.queue.push({
+    name: song.name,
+    createdAt: new Date()
+  });
+};
+
 const Party = mongoose.model('Party', partySchema);
 
 module.exports = Party;
