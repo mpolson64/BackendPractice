@@ -5,11 +5,11 @@ const Schema = mongoose.Schema;
 const partySchema = new Schema({
   name: {type: String, unique: true, required: true},
   queue: [{
-    name: String,
+    name: {type: String, unique: true},
     createdAt: Date
   }],
   pool: [{
-    name: String,
+    name: {type: String, unique: true},
     createdAt: Date
   }]
 });
