@@ -63,6 +63,15 @@ router.route('/party/:id/queue')
       else {
         res.json(req.body);
         party.addSongToQueue(req.body);
+
+        party.save((err) => {
+          if(err) {
+            res.json(err);
+          }
+          else {
+            res.json({message: 'Saved'});
+          }
+        });
       }
     });
   });
