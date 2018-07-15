@@ -21,8 +21,6 @@ router.route('/party')
     console.log(req.query);
     console.log(req.params);
     party.name = 'mpo';
-    party.queue = ['despacito'];
-    party.pool = ['despacito 2', 'lift yourself'];
 
     party.save((err) => {
       if(err) {
