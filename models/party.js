@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const partySchema = new Schema({
   name: {type: String, unique: true, required: true},
   queue: [{
-    name: {type: String, unique: true},
+    name: String,
     createdAt: Date
   }],
   pool: [{
@@ -15,10 +15,15 @@ const partySchema = new Schema({
 });
 
 partySchema.methods.addSongToQueue = function(song) {
-  this.queue.push({
-    name: song.name,
-    createdAt: new Date()
-  });
+  if(!this.queue.map(song => song.name).includes(song.title)) {
+    this.queue.push({
+      name: song.name,
+      createdAt: new Date()
+    });
+  }
+  else {
+    console.log('not unique');
+  }
 };
 
 const Party = mongoose.model('Party', partySchema);
