@@ -43,7 +43,7 @@ router.route('/party')
   });
 
 router.route('/party/:id')
-  .put((req, res) => {
+  .get((req, res) => {
     Party.findById(req.params.id, (err, party) => {
       if (err) {
         res.json(err);
@@ -54,7 +54,7 @@ router.route('/party/:id')
     });
   });
 
-router.route('party/:id/queue')
+router.route('/party/:id/queue')
   .put((req, res) => {
     Party.findById(req.params.id, (err, party) => {
       if (err) {
