@@ -54,6 +54,18 @@ router.route('/party/:id')
     });
   });
 
+router.route('party/:id/queue')
+  .put((req, res) => {
+    Party.findById(req.params.id, (err, party) => {
+      if (err) {
+        res.json(err);
+      }
+      else {
+        res.json(req.params);
+      }
+    });
+  });
+
 app.use('/', router);
 
 const server = app.listen(process.env.PORT, () => {
