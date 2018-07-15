@@ -14,7 +14,7 @@ const partySchema = new Schema({
   }]
 });
 
-partySchema.methods.addSongToQueue = (song) => {
+partySchema.methods.addSongToQueue = function(song) {
   this.queue.push({
     name: song.name,
     createdAt: new Date()
