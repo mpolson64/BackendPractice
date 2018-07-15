@@ -15,7 +15,7 @@ const partySchema = new Schema({
 });
 
 partySchema.methods.addSongToQueue = function(song) {
-  if(!this.queue.map(song => song.name).includes(song.title)) {
+  if(!this.queue.map(song => song.name).includes(song.name)) {
     this.queue.push({
       name: song.name,
       createdAt: new Date()
