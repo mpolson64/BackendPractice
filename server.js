@@ -80,6 +80,7 @@ router.route('/party/:id/queue/:songId')
   .put((req, res) => {
     Party.findById(req.params.id, (err, party) => {
       party.moveSong(req.params.songId);
+      party.save();
       res.json({message: 1});
     });
   });
