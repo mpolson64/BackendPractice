@@ -78,9 +78,8 @@ router.route('/party/:id/queue')
 
 router.route('/party/:id/queue/:songId')
   .put((req, res) => {
-    console.log(req.params);
     Party.findById(req.params.id, (err, party) => {
-      party.moveSong(0);
+      party.moveSong(req.params.songId);
       res.json({message: 1});
     });
   });
