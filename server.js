@@ -76,11 +76,12 @@ router.route('/party/:id/queue')
     });
   });
 
-router.route('/party/:id/queue/:name')
+router.route('/party/:id/queue/:songId')
   .put((req, res) => {
     console.log(req.params);
     Party.findById(req.params.id, (err, party) => {
-      res.json(party.queue.map(song => song.name).indexOf(req.params.name));
+      party.moveSong(0);
+      res.json({message: 1});
     });
   });
 

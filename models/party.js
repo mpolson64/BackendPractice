@@ -26,6 +26,10 @@ partySchema.methods.addSongToQueue = function(song) {
   }
 };
 
+partySchema.methods.moveSong = function(song) {
+  console.log(this.queue);
+}
+
 const Party = mongoose.model('Party', partySchema);
 
 module.exports = Party;
