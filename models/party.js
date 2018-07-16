@@ -30,6 +30,7 @@ partySchema.methods.moveSong = function(songId) {
   console.log(this.queue[0]);
   console.log(this.queue.map(song => song._id));
   console.log(songId);
+  console.log(this.queue.map(song => song._id).indexOf(songId));
   let songIndex = this.queue.map(song => song._id).indexOf(songId);
   console.log(songIndex);
   let song = this.queue[songIndex];
