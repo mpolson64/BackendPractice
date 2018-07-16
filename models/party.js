@@ -29,6 +29,8 @@ partySchema.methods.addSongToQueue = function(song) {
 partySchema.methods.moveSong = function(songId) {
   console.log(this.queue.map(song => song._id.toString())[0]);
   console.log(songId);
+  const songIndex = this.queue.map(song => song._id.toString()).indexOf(songId)
+  console.log(songIndex);
 }
 
 const Party = mongoose.model('Party', partySchema);
